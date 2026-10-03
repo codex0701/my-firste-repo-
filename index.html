@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🥬 Vegetable Market — Fresh Vegetables, Fair Prices, Simple Shopping</title>
+  <meta name="description" content="A digital vegetable marketplace prototype built for college demonstration, offering transparent local mandi prices, real-time comparisons, and convenient basket ordering." />
+  
+  <!-- Favicon / Emoji Icon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥬</text></svg>" />
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Site Header (Sticky Container) -->
+  <header class="site-header" id="site-header">
+    <!-- Academic Showcase Header Banner -->
+    <div class="demo-top-banner" role="banner">
+      <span>🎓 <strong>College Project Demo</strong> — Academic Year 2026</span>
+      <span>•</span>
+      <span>Local Digital Mandi & Marketplace Simulation</span>
+      <span>•</span>
+      <a href="#about" title="Read project problem statement">View Abstract</a>
+    </div>
+
+    <!-- Primary Navigation Bar -->
+    <nav class="navbar" id="navbar" aria-label="Main Navigation">
+      <div class="container nav-inner">
+        <!-- Brand Logo -->
+        <a href="#home" class="brand-logo" aria-label="Vegetable Market Home">
+          <span class="logo-emoji">🥬</span>
+          <span class="brand-text">Vegetable Market</span>
+          <span class="brand-badge">Demo</span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <ul class="nav-links">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#vegetables">Vegetables</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#comparison">Compare Prices</a></li>
+          <li><a href="#dashboard">Dashboard</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <!-- Right Navigation Actions -->
+        <div class="nav-actions">
+          <!-- Quick Search Focus Button -->
+          <a href="#vegetables" class="nav-icon-btn" title="Search vegetables" aria-label="Search vegetables">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </a>
+
+          <!-- Track Demo Order Button -->
+          <button type="button" class="nav-icon-btn" id="track-order-nav-btn" title="View Recent Demo Order" aria-label="Track recent order">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="1" y="3" width="15" height="13"></rect>
+              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+              <circle cx="5.5" cy="18.5" r="2.5"></circle>
+              <circle cx="18.5" cy="18.5" r="2.5"></circle>
+            </svg>
+          </button>
+
+          <!-- Shopping Cart Trigger Button -->
+          <button type="button" class="nav-icon-btn" id="cart-btn" title="Shopping Cart" aria-label="Open Shopping Cart">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="cart-badge" id="cart-badge">0</span>
+          </button>
+
+          <!-- Mobile Menu Toggle Button -->
+          <button type="button" class="nav-icon-btn mobile-menu-btn" id="mobile-nav-toggle" aria-expanded="false" aria-label="Toggle Navigation Menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer" role="dialog" aria-modal="false" aria-label="Mobile Navigation">
+      <ul>
+        <li><a href="#home">🏡 Home</a></li>
+        <li><a href="#vegetables">🥬 Browse Vegetables</a></li>
+        <li><a href="#how-it-works">🔄 How It Works</a></li>
+        <li><a href="#comparison">💰 Compare Prices</a></li>
+        <li><a href="#dashboard">📊 Market Dashboard</a></li>
+        <li><a href="#about">📖 Problem & About</a></li>
+        <li><a href="#team">👥 Student Team</a></li>
+        <li><a href="#contact">✉️ Contact & Feedback</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <header class="hero-section" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1>Fresh Vegetables. Fair Prices. Simple Shopping.</h1>
+          <p>
+            Find everyday vegetables, compare prices across local farm sellers, and create your grocery order from the comfort of your home. A digital solution designed to make traditional vegetable shopping transparent and convenient.
+          </p>
+          <div class="hero-actions">
+            <a href="#vegetables" class="btn btn-primary">
+              <span>🛒 Shop Vegetables</span>
+            </a>
+            <a href="#comparison" class="btn btn-secondary">
+              <span>🔍 Explore Market Prices</span>
+            </a>
+          </div>
+          <div class="hero-trust-points">
+            <div class="trust-item">
+              <span class="icon">✓</span>
+              <span>Daily Harvest Stock</span>
+            </div>
+            <div class="trust-item">
+              <span class="icon">✓</span>
+              <span>Transparent Mandi Rates</span>
+            </div>
+            <div class="trust-item">
+              <span class="icon">✓</span>
+              <span>Zero Middleman Markup</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Realistic Visual Showcase Card -->
+        <div class="hero-visual-card">
+          <div class="hero-image-wrapper">
+            <img 
+              src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=800&auto=format&fit=crop&q=80" 
+              alt="Fresh Indian vegetables basket with tomatoes, carrots, capsicum and greens" 
+              class="hero-main-img"
+            />
+            <div class="hero-floating-badge">
+              <span class="floating-badge-icon">🌿</span>
+              <div class="floating-badge-text">
+                <strong>Morning Batch Ready</strong>
+                <span>Directly from Green Farm & Local Mandi</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-vegetable-pills">
+            <span class="hero-pill">🍅 Fresh Tomato</span>
+            <span class="hero-pill">🥔 New Potato</span>
+            <span class="hero-pill">🧅 Nasik Onion</span>
+            <span class="hero-pill">🥕 Sweet Carrot</span>
+            <span class="hero-pill">🥬 Desi Palak</span>
+            <span class="hero-pill">🥦 Cauliflower</span>
+            <span class="hero-pill">🫑 Bell Pepper</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- MARKET OVERVIEW / QUICK STATISTICS -->
+    <section class="market-stats-section" id="market-overview" aria-label="Market Overview Statistics">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon" aria-hidden="true">🥬</div>
+            <div class="stat-content">
+              <div class="stat-label">Available Vegetables</div>
+              <div class="stat-value">25+</div>
+              <div class="stat-demo-tag">Sample Market Data</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" aria-hidden="true">🚜</div>
+            <div class="stat-content">
+              <div class="stat-label">Local Sellers</div>
+              <div class="stat-value">10+</div>
+              <div class="stat-demo-tag">Registered Farms & Mandis</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" aria-hidden="true">⚡</div>
+            <div class="stat-content">
+              <div class="stat-label">Average Delivery</div>
+              <div class="stat-value">30–60 min</div>
+              <div class="stat-demo-tag">Estimated Slot Window</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" aria-hidden="true">🌱</div>
+            <div class="stat-content">
+              <div class="stat-label">Fresh Produce</div>
+              <div class="stat-value">Daily</div>
+              <div class="stat-demo-tag">Updated Every 6:00 AM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN VEGETABLE MARKETPLACE -->
+    <section class="marketplace-section" id="vegetables">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Fresh Arrivals</span>
+          <h2 class="section-title">Vegetable Marketplace</h2>
+          <p class="section-desc">
+            Browse genuine farm produce, compare competitive local prices, and add essential staples directly to your basket.
+          </p>
+        </div>
+
+        <!-- SEARCH AND FILTER INTERFACE -->
+        <div class="marketplace-controls" role="search" aria-label="Filter vegetables">
+          <!-- Primary Search Bar -->
+          <div class="search-primary-row">
+            <div class="search-input-wrapper">
+              <span class="search-icon" aria-hidden="true">🔍</span>
+              <input 
+                type="text" 
+                id="search-input" 
+                class="search-input" 
+                placeholder="Search vegetables by name or seller (e.g., 'Tomato', 'Palak', 'Green Farm')..." 
+                aria-label="Search vegetables by name or seller"
+              />
+              <button type="button" class="search-clear-btn" id="search-clear-btn" aria-label="Clear search input">✕</button>
+            </div>
+          </div>
+
+          <!-- Category Chips -->
+          <div class="category-chips-wrapper" id="category-chips" role="radiogroup" aria-label="Vegetable categories">
+            <!-- Injected by JavaScript -->
+          </div>
+
+          <!-- Secondary Filter Controls -->
+          <div class="filter-secondary-row">
+            <div class="filter-group-items">
+              <!-- Max Price Range Filter -->
+              <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;">
+                <label for="price-range-input" style="color: var(--text-muted); font-weight: 500;">Max Price:</label>
+                <input type="range" id="price-range-input" min="20" max="150" step="5" value="150" style="width: 100px; accent-color: var(--primary);" />
+                <span id="price-range-value" style="font-weight: 700; color: var(--primary-dark);">₹150</span>
+              </div>
+
+              <!-- Availability Dropdown -->
+              <select id="availability-filter" class="filter-select" aria-label="Filter by availability">
+                <option value="all">All Availability</option>
+                <option value="in-stock">In Stock Only</option>
+                <option value="limited">Limited Stock (Running Low)</option>
+              </select>
+
+              <!-- Seller Filter -->
+              <select id="seller-filter" class="filter-select" aria-label="Filter by seller">
+                <option value="all">All Local Sellers</option>
+              </select>
+
+              <!-- Sort Dropdown -->
+              <select id="sort-select" class="filter-select" aria-label="Sort products">
+                <option value="default">Sort by: Featured</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="name-az">Name: A–Z</option>
+                <option value="availability">Stock Availability</option>
+              </select>
+            </div>
+
+            <!-- Filter Results Status & Reset -->
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <span class="filter-results-info" id="product-count-text">Showing 22 vegetables</span>
+              <button type="button" class="reset-filters-btn" id="reset-filters-btn" title="Reset all applied filters">
+                <span>↺</span> Reset Filters
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRODUCTS GRID -->
+        <div class="products-grid" id="products-grid" aria-live="polite">
+          <!-- Populated dynamically via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICE COMPARISON TOOL SECTION -->
+    <section class="comparison-section" id="comparison">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Smart Market Tool</span>
+          <h2 class="section-title">Multi-Seller Price Comparison</h2>
+          <p class="section-desc">
+            Compare live prices of the same vegetable from different local sellers and mandi yards to discover the best daily deal.
+          </p>
+        </div>
+
+        <div class="comparison-card">
+          <div class="comparison-selector-row">
+            <label for="comparison-veg-select" style="font-weight: 700; color: var(--primary-dark);">Select Vegetable to Compare:</label>
+            <select id="comparison-veg-select" class="filter-select" style="font-weight: 600; padding: 0.5rem 1rem;">
+              <!-- Populated via JS -->
+            </select>
+            <span style="font-size: 0.8rem; color: var(--text-subtle);">Showing realistic vendor rates from Mandi Gate, Green Farm, and Local Harvest.</span>
+          </div>
+
+          <div class="comparison-table-wrapper">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Seller / Vendor</th>
+                  <th>Location / Mandi Unit</th>
+                  <th>Freshness & Batch</th>
+                  <th>Price</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="comparison-table-body">
+                <!-- Populated via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARKET DASHBOARD & PRICE TRENDS -->
+    <section class="dashboard-section" id="dashboard">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Market Analytics</span>
+          <h2 class="section-title">Market Dashboard & Price Trends</h2>
+          <p class="section-desc">
+            Monitor real-time inventory counts, customer activity, and vegetable price variations across wholesale and retail batches.
+          </p>
+        </div>
+
+        <div class="dashboard-grid">
+          <!-- Metric Cards Panel -->
+          <div class="dash-stats-panel">
+            <div class="dash-mini-card">
+              <span style="font-size: 1.5rem;">🥬</span>
+              <div class="dash-num" id="dash-total-veg">22</div>
+              <div class="dash-sub">Total Catalog Vegetables</div>
+            </div>
+            <div class="dash-mini-card">
+              <span style="font-size: 1.5rem;">📦</span>
+              <div class="dash-num" id="dash-in-stock" style="color: var(--accent-green);">21</div>
+              <div class="dash-sub">Items In Stock Today</div>
+            </div>
+            <div class="dash-mini-card">
+              <span style="font-size: 1.5rem;">🛍️</span>
+              <div class="dash-num" id="dash-orders-today">32</div>
+              <div class="dash-sub">Demo Orders Placed Today</div>
+            </div>
+            <div class="dash-mini-card">
+              <span style="font-size: 1.5rem;">💰</span>
+              <div class="dash-num" id="dash-avg-basket">₹285</div>
+              <div class="dash-sub">Average Basket Value</div>
+            </div>
+          </div>
+
+          <!-- Interactive Price Chart -->
+          <div class="chart-panel">
+            <div class="chart-header">
+              <h3 class="chart-title">Weekly Price Overview</h3>
+              <div class="chart-toggles" role="group" aria-label="Toggle Chart Metric">
+                <button type="button" class="chart-toggle-btn active" data-metric="current">Current (₹)</button>
+                <button type="button" class="chart-toggle-btn" data-metric="previous">Vs Last Week</button>
+                <button type="button" class="chart-toggle-btn" data-metric="change">% Change</button>
+              </div>
+            </div>
+
+            <!-- SVG Chart Container -->
+            <div class="chart-svg-container">
+              <svg id="chart-svg" class="chart-svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Vegetable price trend chart"></svg>
+            </div>
+
+            <!-- Chart Legend -->
+            <div class="chart-legend">
+              <div class="legend-item">
+                <span class="legend-color-dot" style="background: #2e7d32;"></span>
+                <span>Current Price (₹)</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color-dot" style="background: #94a3b8;"></span>
+                <span>Last Week Price (₹)</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color-dot" style="background: #15803d;"></span>
+                <span>Price Drop (%)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS SECTION -->
+    <section class="how-it-works-section" id="how-it-works">
+      <div class="container">
+        <div class="section-header" style="text-align: center; margin-bottom: 2.5rem;">
+          <span class="section-eyebrow">Simple Workflow</span>
+          <h2 class="section-title">How It Works</h2>
+          <p class="section-desc" style="margin-left: auto; margin-right: auto;">
+            Ordering fresh produce from your local marketplace in 4 seamless steps.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <h3>Browse</h3>
+            <p>Explore daily fresh vegetables sourced directly from regional farms and verified local mandis.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <h3>Compare</h3>
+            <p>Check transparent rates, availability flags, and seller ratings to choose the best quality produce.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <h3>Order</h3>
+            <p>Add vegetables to your cart, choose your delivery slot, and submit your order with simulated payments.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">04</div>
+            <h3>Receive</h3>
+            <p>Track your demo delivery progress in real-time from harvest packing to your doorstep.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES OVERVIEW -->
+    <section class="features-section" id="features">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Capabilities</span>
+          <h2 class="section-title">Designed for Daily Convenience</h2>
+          <p class="section-desc">Key features built into this practical marketplace prototype.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon-bubble">🔎</div>
+            <h3>Easy Search</h3>
+            <p>Quickly find vegetables by their common English or vernacular Hindi names with instant typing responses.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon-bubble">💰</div>
+            <h3>Price Comparison</h3>
+            <p>Transparently compare prices for the exact same produce across multiple local sellers without walking around.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon-bubble">🛒</div>
+            <h3>Smart Cart</h3>
+            <p>Add items, adjust custom quantities per kg or bunch, and see dynamic subtotal and delivery calculations.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon-bubble">📦</div>
+            <h3>Order Tracking</h3>
+            <p>Visual stepper displaying order status from confirmation to packing, transit, and doorstep delivery.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon-bubble">📊</div>
+            <h3>Market Dashboard</h3>
+            <p>View daily metrics, current inventory numbers, and interactive vegetable price charts.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon-bubble">🥬</div>
+            <h3>Availability Status</h3>
+            <p>Real-time indicators showing whether an item is fresh in stock, running low on quantity, or temporarily sold out.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM & ABOUT SECTION -->
+    <section class="about-section" id="about">
+      <div class="container about-grid">
+        <div class="about-content">
+          <span class="section-eyebrow">Problem Statement & Scope</span>
+          <h2>Solving Everyday Vegetable Shopping Hurdles</h2>
+          <p>
+            Visiting physical vegetable markets (mandis) is an essential routine for millions of households. However, traditional market visits often introduce common practical hurdles:
+          </p>
+          <ul class="pain-points-list">
+            <li><span class="cross-icon">✕</span> <strong>Opaque pricing:</strong> Hard to know if you're getting a fair rate without haggling.</li>
+            <li><span class="cross-icon">✕</span> <strong>Manual comparison:</strong> Walking between 10+ crowded stalls just to compare basic prices.</li>
+            <li><span class="cross-icon">✕</span> <strong>Uncertain stock:</strong> Not knowing if specific fresh items are available before visiting.</li>
+            <li><span class="cross-icon">✕</span> <strong>Cost unpredictability:</strong> Difficult to tally the exact basket total prior to purchase.</li>
+          </ul>
+          <div class="solution-box">
+            <h4>Our Digital Approach</h4>
+            <p>
+              "Vegetable Market" does not seek to displace local vendors. Instead, it offers a practical, student-designed digital layer connecting local sellers with households—providing transparent pricing, inventory visibility, and convenient doorstep delivery.
+            </p>
+          </div>
+        </div>
+
+        <div class="project-specs-card">
+          <h3 class="specs-title">Project Technical Specifications</h3>
+          <div class="specs-list">
+            <div class="spec-row">
+              <span class="spec-label">Project Title:</span>
+              <span class="spec-value">Vegetable Market</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Project Type:</span>
+              <span class="spec-value">College Mini-Project / Demonstration</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Frontend Stack:</span>
+              <span class="spec-value">HTML5, CSS3 (Custom Tokens), Vanilla JavaScript (ES6+)</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">State Storage:</span>
+              <span class="spec-value">Client-side Web Storage (localStorage)</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Data Representation:</span>
+              <span class="spec-value">22 Regional Indian Vegetables, 5 Local Sellers</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Simulations:</span>
+              <span class="spec-value">Demo Checkout, UPI QR, 4-Stage Live Order Stepper</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Accessibility:</span>
+              <span class="spec-value">Semantic HTML, ARIA Live, Keyboard Accessible</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STUDENT TEAM SECTION -->
+    <section class="team-section" id="team">
+      <div class="container">
+        <div class="section-header" style="text-align: center;">
+          <span class="section-eyebrow">Project Contributors</span>
+          <h2 class="section-title">Developer & Research Team</h2>
+          <p class="section-desc" style="margin-left: auto; margin-right: auto;">
+            Department of Computer Science & Engineering • Academic Project Showcase 2026
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-avatar-placeholder" aria-hidden="true">👨‍💻</div>
+            <h3>[Team Member 1]</h3>
+            <div class="team-role">Frontend & UI Development</div>
+            <p class="team-notes">Interface design, responsive layouts, cart state & visual components.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar-placeholder" aria-hidden="true">👩‍💻</div>
+            <h3>[Team Member 2]</h3>
+            <div class="team-role">Backend / Data Management</div>
+            <p class="team-notes">Catalog structure, mock data modeling, and localStorage storage handlers.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar-placeholder" aria-hidden="true">📊</div>
+            <h3>[Team Member 3]</h3>
+            <div class="team-role">Research & Market Analysis</div>
+            <p class="team-notes">Local mandi price surveys, farmer-to-consumer workflows & user requirements.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar-placeholder" aria-hidden="true">📝</div>
+            <h3>[Team Member 4]</h3>
+            <div class="team-role">Testing & Documentation</div>
+            <p class="team-notes">Edge-case validation, accessibility audits, and project reporting.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT & FEEDBACK SECTION -->
+    <section class="contact-section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-info-card">
+          <span class="section-eyebrow">Get in Touch</span>
+          <h2 class="section-title">Demo Feedback & Queries</h2>
+          <p class="section-desc">
+            Have questions about this prototype or suggestions for features to include in the final project viva? We'd love your evaluation!
+          </p>
+
+          <div class="contact-item">
+            <div class="contact-icon" aria-hidden="true">✉️</div>
+            <div class="contact-text">
+              <h4>Project Demonstration Email</h4>
+              <p>project.vegetablemarket.demo@college.edu</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon" aria-hidden="true">🏫</div>
+            <div class="contact-text">
+              <h4>Campus Laboratory</h4>
+              <p>Lab 402, Technology Block, Computer Science Dept.</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon" aria-hidden="true">💡</div>
+            <div class="contact-text">
+              <h4>Academic Context</h4>
+              <p>Presented as part of the Web Application Development & HCI curriculum.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Feedback Form -->
+        <div class="feedback-form-card">
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 1rem;">
+            Record Evaluator Feedback
+          </h3>
+          <form id="feedback-form">
+            <div class="form-group">
+              <label for="feedback-name" class="form-label">Your Name / Reviewer:</label>
+              <input type="text" id="feedback-name" class="form-control" placeholder="e.g. Prof. Sharma or Evaluator" required />
+            </div>
+            <div class="form-group">
+              <label for="feedback-email" class="form-label">Email Address (Optional):</label>
+              <input type="email" id="feedback-email" class="form-control" placeholder="reviewer@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="feedback-msg" class="form-label">Comments or Suggestions:</label>
+              <textarea id="feedback-msg" class="form-control" rows="3" placeholder="Share your assessment on usability, pricing transparency, or UI polish..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">
+              <span>Submit Feedback</span>
+            </button>
+            <div id="feedback-success" class="feedback-success-msg" role="status">
+              Thanks! Your feedback has been recorded for this project demo.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3><span>🥬</span> Vegetable Market</h3>
+          <p>
+            Making everyday vegetable shopping simpler through a practical digital marketplace. Designed to bring transparency, fresh produce, and local vendors together.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#vegetables">Vegetables</a></li>
+            <li><a href="#comparison">Compare Prices</a></li>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#about">About & Specs</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Project Details</h4>
+          <ul>
+            <li><span style="color: #a7f3d0;">Course: Web Development</span></li>
+            <li><span style="color: #a7f3d0;">Status: Demo Prototype</span></li>
+            <li><span style="color: #a7f3d0;">Simulated INR (₹) Pricing</span></li>
+            <li><span style="color: #a7f3d0;">Zero Commercial Gateway</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>Vegetable Market • College Project Demo • 2026</div>
+        <div>Built for Academic Demonstration & Evaluation</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =======================================================================
+       MODALS & DRAWERS
+       ======================================================================= -->
+
+  <!-- SHOPPING CART DRAWER -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay" aria-hidden="true" role="dialog" aria-label="Shopping Cart">
+    <div class="cart-drawer">
+      <div class="cart-header">
+        <h3><span>🛒</span> Your Market Basket</h3>
+        <button type="button" class="close-btn" id="close-cart-btn" aria-label="Close cart">✕</button>
+      </div>
+
+      <!-- Free Delivery Threshold Notice -->
+      <div id="cart-free-delivery-prompt" style="padding: 0.65rem 1.5rem; background: var(--bg-subtle); border-bottom: 1px solid var(--border-light); font-size: 0.8rem; text-align: center;">
+        Add items worth ₹200 for <strong>FREE Delivery</strong>!
+      </div>
+
+      <!-- List of Items -->
+      <div class="cart-items-list" id="cart-items-container">
+        <!-- Dynamically injected via JS -->
+      </div>
+
+      <!-- Cart Totals & Checkout -->
+      <div class="cart-footer">
+        <div class="cart-summary-line">
+          <span>Items Subtotal:</span>
+          <span id="cart-subtotal" style="font-weight: 700;">₹0</span>
+        </div>
+        <div class="cart-summary-line">
+          <span>Delivery Charges:</span>
+          <span id="cart-delivery-fee">₹0</span>
+        </div>
+        <div class="cart-summary-line total-line">
+          <span>Total Payable:</span>
+          <span id="cart-total">₹0</span>
+        </div>
+
+        <div class="cart-actions">
+          <button type="button" class="btn btn-primary btn-block" id="checkout-btn" disabled>
+            <span>Proceed to Demo Checkout</span>
+          </button>
+          <button type="button" class="btn btn-secondary btn-block" id="continue-shopping-btn">
+            <span>Continue Shopping</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHECKOUT MODAL -->
+  <div class="modal-overlay" id="checkout-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Demo Checkout">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3><span>📋</span> Demo Order Checkout</h3>
+        <button type="button" class="close-btn" id="close-checkout-btn" aria-label="Close checkout modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="checkout-demo-callout">
+          <span>ℹ️</span>
+          <div>
+            <strong>Demonstration Mode:</strong> No actual payment gateway is connected and no money will be deducted. All fields are simulated.
+          </div>
+        </div>
+
+        <form id="checkout-form">
+          <div class="form-group">
+            <label for="cust-name" class="form-label">Full Name *</label>
+            <input type="text" id="cust-name" name="customerName" class="form-control" placeholder="e.g. Rahul Sharma" required />
+          </div>
+
+          <div class="form-group">
+            <label for="cust-phone" class="form-label">Mobile Number (10 Digits) *</label>
+            <input type="tel" id="cust-phone" name="customerPhone" class="form-control" placeholder="e.g. 9876543210" pattern="[0-9]{10}" required />
+          </div>
+
+          <div class="form-group">
+            <label for="cust-address" class="form-label">Delivery Address *</label>
+            <textarea id="cust-address" name="deliveryAddress" class="form-control" rows="2" placeholder="House/Flat No, Apartment, Street, Landmark" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="delivery-slot" class="form-label">Preferred Delivery Slot</label>
+            <select id="delivery-slot" name="deliverySlot" class="form-control">
+              <option value="Morning (8:00 AM - 10:00 AM)">Morning (8:00 AM - 10:00 AM) — Fresh Batch</option>
+              <option value="Afternoon (12:00 PM - 2:00 PM)">Afternoon (12:00 PM - 2:00 PM)</option>
+              <option value="Evening (5:00 PM - 7:00 PM)">Evening (5:00 PM - 7:00 PM)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <span class="form-label">Select Payment Method (Simulation)</span>
+            <div class="payment-options-grid">
+              <label class="payment-radio-card selected">
+                <input type="radio" name="paymentMethod" value="Cash on Delivery" checked />
+                <span class="pay-icon">💵</span>
+                <span class="pay-title">Cash on Delivery</span>
+                <span class="pay-badge">Pay on Arrival</span>
+              </label>
+
+              <label class="payment-radio-card">
+                <input type="radio" name="paymentMethod" value="UPI — Demo" />
+                <span class="pay-icon">📱</span>
+                <span class="pay-title">UPI — Demo</span>
+                <span class="pay-badge">GPay / PhonePe</span>
+              </label>
+
+              <label class="payment-radio-card">
+                <input type="radio" name="paymentMethod" value="Card — Demo" />
+                <span class="pay-icon">💳</span>
+                <span class="pay-title">Card — Demo</span>
+                <span class="pay-badge">Debit / Credit</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Checkout Order Mini Summary -->
+          <div style="background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-light); margin: 1rem 0;">
+            <div style="font-weight: 700; font-size: 0.85rem; color: var(--primary-dark); margin-bottom: 0.5rem;">Basket Summary:</div>
+            <div id="checkout-summary-items"></div>
+            <div style="display: flex; justify-content: space-between; font-weight: 800; font-size: 1.05rem; margin-top: 0.5rem; color: var(--primary-dark);">
+              <span>Final Total:</span>
+              <span id="checkout-modal-total">₹0</span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" style="padding: 0.85rem;">
+            <span>Confirm & Place Demo Order 🎉</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORDER TRACKING MODAL -->
+  <div class="modal-overlay" id="tracking-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Order Tracking Demo">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3><span>📦</span> Live Order Tracking (Simulation)</h3>
+        <button type="button" class="close-btn" id="close-tracking-btn" aria-label="Close tracking modal">✕</button>
+      </div>
+      <div class="modal-body order-confirm-card">
+        <div class="order-success-icon" aria-hidden="true">🎉</div>
+        <h3 style="font-size: 1.35rem; color: var(--primary-dark);">Order Placed Successfully!</h3>
+        <div class="order-id-badge" id="tracking-order-id">VM-2026-001</div>
+        <div style="font-size: 0.85rem; color: var(--text-muted);">
+          Estimated delivery window: <strong id="tracking-est-time">30–60 minutes</strong>
+        </div>
+
+        <!-- 4-STEP VISUAL TRACKER -->
+        <div class="order-stepper" aria-label="Order Status Progress">
+          <div class="stepper-progress-line" id="stepper-progress-line"></div>
+          
+          <div class="step-node completed" data-step="1">
+            <div class="step-circle">1</div>
+            <div class="step-label">Order Confirmed ✓</div>
+          </div>
+          
+          <div class="step-node" data-step="2">
+            <div class="step-circle">2</div>
+            <div class="step-label">Preparing Order 🥬</div>
+          </div>
+          
+          <div class="step-node" data-step="3">
+            <div class="step-circle">3</div>
+            <div class="step-label">Out for Delivery 🛵</div>
+          </div>
+          
+          <div class="step-node" data-step="4">
+            <div class="step-circle">4</div>
+            <div class="step-label">Delivered 🎉</div>
+          </div>
+        </div>
+
+        <div style="font-weight: 700; color: var(--primary); font-size: 1rem; margin-top: 0.5rem;" id="tracking-status-badge">
+          Order Confirmed ✓
+        </div>
+
+        <!-- Order Details Card -->
+        <div class="tracking-summary-box">
+          <div style="font-weight: 700; color: var(--primary-dark); margin-bottom: 0.4rem;">Order Summary:</div>
+          <div id="tracking-items-list"></div>
+          <div style="display:flex; justify-content:space-between; margin-top:0.4rem; padding-top:0.4rem; border-top:1px dashed var(--border-light); font-weight:700;">
+            <span>Total Paid (Demo):</span>
+            <span id="tracking-total">₹0</span>
+          </div>
+          <div style="margin-top: 0.5rem; font-size: 0.78rem; color: var(--text-subtle);">
+            Delivery to: <span id="tracking-address"></span>
+          </div>
+        </div>
+
+        <!-- Demo Stage Advance Simulation Button -->
+        <button type="button" class="btn btn-outline btn-block btn-sm tracking-advance-btn" id="advance-tracking-btn">
+          Simulate Next Stage (Demo)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST CONTAINER -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- SCRIPTS -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Extra wireup: Nav Track Order button opens tracking modal with current or past order
+    document.getElementById('track-order-nav-btn').addEventListener('click', () => {
+      const orders = JSON.parse(localStorage.getItem('vm_orders') || '[]');
+      if (orders.length > 0) {
+        window.VegetableMarket.openTrackingModal(orders[0]);
+      } else {
+        window.VegetableMarket.showToast('No demo orders found. Add items and place an order to test live tracking!', 'info');
+      }
+    });
+  </script>
+</body>
+</html>
